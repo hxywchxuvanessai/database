@@ -1,4 +1,4 @@
-# databse
+# database
 資料庫專題
 
 ## 雇主「雷」達
