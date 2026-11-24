@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>雇主「雷」達｜裁罰查詢地圖</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="/static/app.js"></script>
+</head>
+<body>
+  <header class="masthead">
+    <div>
+      <div class="eyebrow">EMPLOYER RADAR · DATABASE PROJECT</div>
+      <h1>雇主<span>「雷」</span>達</h1>
+      <p>用公開勞動裁罰資料，協助求職者查詢雇主紀錄與候選登記地址</p>
+    </div>
+    <div class="header-tag">第一階段｜查詢＋地圖展示</div>
+  </header>
+
+  <main class="layout">
+    <section class="panel search-panel" aria-label="裁罰查詢">
+      <h2>搜尋事業單位</h2>
+      <p class="helper">輸入公司完整名稱或部分名稱。查詢來自本機 PostgreSQL。</p>
+      <form id="search-form" class="search-form">
+        <label for="keyword" class="sr-only">公司名稱</label>
+        <input id="keyword" name="keyword" type="search" placeholder="例如：得勝者文教股份有限公司" maxlength="66" required autocomplete="off" />
+        <button id="search-btn" type="submit">搜尋</button>
+      </form>
+      <p id="status" class="status" role="status" aria-live="polite">請輸入公司名稱開始查詢。</p>
+      <div id="results" class="results"></div>
+    </section>
+
+    <section class="panel map-panel" aria-label="公司登記位置地圖">
+      <div class="map-top">
+        <div>
+          <h2>登記地址地圖</h2>
+          <p class="helper">搜尋後點選「在地圖定位」。顯示的是候選營業登記地址，並非已核實違規地點。</p>
+        </div>
+        <button type="button" id="reset-map" class="quiet-btn">回到全台</button>
+      </div>
+      <div id="map" role="application" aria-label="台灣地圖"></div>
+      <div class="map-foot">
+        <strong>重要聲明：</strong>名稱配對與地理編碼結果僅供初步查詢，可能存在同名、分店或地址偏差；請核對原始處分與登記資料。
+        <span>地圖 © OpenStreetMap contributors；地址查找使用 OpenStreetMap Nominatim（需網路）。</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
