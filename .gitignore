@@ -1,2 +1,16 @@
 /backend/build/
 /backend/vcpkg_installed/
+
+
+# Gemini API secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# VS Code local settings
+.vscode/
